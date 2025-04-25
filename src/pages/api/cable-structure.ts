@@ -8,17 +8,14 @@ async function getBrowser() {
   if (!browser) {
     browser = await puppeteer.launch({
       headless: true,
-      executablePath: executablePath(),
+      executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || executablePath(), // Ensure this uses the Render environment variable
       args: ["--no-sandbox", "--disable-setuid-sandbox"],
     });
   }
   return browser;
 }
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method Not Allowed" });
   }
@@ -52,7 +49,7 @@ export default async function handler(
     const page = await browser.newPage();
 
     try {
-      const url = `http://localhost:3000/svg-render?data=${encodeURIComponent(
+      const url = `https://cable-core-api.onrender.com/svg-render?data=${encodeURIComponent(
         JSON.stringify(data)
       )}`;
       await page.goto(url, { waitUntil: "domcontentloaded", timeout: 10000 });
