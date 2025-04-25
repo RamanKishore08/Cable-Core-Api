@@ -1,0 +1,56 @@
+{
+  "layerNames": [
+    {
+      "processName": "WireDrawing"
+    },
+    {
+      "processName": "Stranding",
+      "strandingLayers": [
+        "compacted-stranding",
+        "concentric-stranding"
+      ]
+    },
+    {
+      "processName": "Insulating",
+      "fill": [
+        "blank-insulating",
+        "filled-insulating",
+        "solid-insulating",
+        "compacted-insulating"
+      ]
+    },
+    {
+      "processName": "Laying",
+      "core": [
+        "3 core",
+        "127 core",
+        "solid-laying",
+        "compacted-laying"
+      ]
+    },
+    {
+      "processName": "Bedding",
+      "subtypes": [
+        "concentric-bedding",
+        "solid-bedding",
+        "compacted-bedding"
+      ]
+    },
+    {
+      "processName": "Armouring",
+      "subtypes": [
+        "concentric-armouring",
+        "solid-armouring",
+        "compacted-armouring"
+      ]
+    },
+    {
+      "processName": "Sheathing",
+      "subtypes": [
+        "concentric-sheathing",
+        "solid-sheathing",
+        "compacted-sheathing"
+      ]
+    }
+  ]
+}
